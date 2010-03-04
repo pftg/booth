@@ -8,16 +8,22 @@ JS_SERVER_PATH = File.join(filepath,"query","server","main.js")
 
 require 'json'
 require 'cgi'
-require 'uuid'
+require 'uuidtools'
 
 $LOAD_PATH.unshift filepath
 $LOAD_PATH.unshift File.join(filepath,"httpd")
 $LOAD_PATH.unshift File.join(filepath,"query")
 $LOAD_PATH.unshift File.join(filepath,"store")
 
+class UUID
+  def generate
+    UUIDTools::UUID.timestamp_create
+  end
+end
+
 require 'database'
 
-Booth ||= {}
+Booth = {} unless defined? Booth
 
 class BoothError < StandardError
   attr_reader :code
