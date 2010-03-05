@@ -17,7 +17,7 @@ $LOAD_PATH.unshift File.join(filepath,"store")
 
 class UUID
   def generate
-    UUIDTools::UUID.timestamp_create
+    UUIDTools::UUID.timestamp_create.to_s
   end
 end
 
