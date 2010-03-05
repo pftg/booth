@@ -13,7 +13,8 @@
 require 'json'
 
 class QueryServer
-  Command = "couchjs #{JS_SERVER_PATH}" 
+  Command = "js #{JS_SERVER_PATH}" 
+  #Command = "couchjs #{JS_SERVER_PATH}" 
   def self.run(trace = false)
     puts "launching #{Command}" if trace
     if block_given?
